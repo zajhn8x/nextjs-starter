@@ -18,7 +18,9 @@ module.exports = (expressApp, functions) => {
         res.json({
           name: user.name,
           email: user.email,
-          emailVerified: (user.emailVerified && user.emailVerified === true) ? true : false
+          emailVerified: (user.emailVerified && user.emailVerified === true) ? true : false,
+          address: user.address,
+          srcAvatar: user.srcAvatar
         })
       })
       .catch(err => {
@@ -45,7 +47,19 @@ module.exports = (expressApp, functions) => {
             user.emailVerified = false
         
           user.email = req.body.email
+
         }
+          user.srcAvatar =  '//localhost:3000/static/image/tunganh.jpg'
+        if(req.body.src) {
+            user.srcAvatar = req.body.src
+        }
+
+
+
+        if(req.body.address) {
+            user.address = req.body.address
+        }
+
         return functions.update(user)
       })
       .then(user => {

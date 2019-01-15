@@ -3,6 +3,8 @@
 const next = require('next')
 const nextAuth = require('next-auth')
 const nextAuthConfig = require('./next-auth.config')
+// const cloudinary = require('cloudinary')
+// const formData = require('express-form-data')
 
 const routes = {
   admin:  require('./routes/admin'),

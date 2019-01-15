@@ -37,7 +37,6 @@ export default class extends React.Component {
     // Save current URL so user is redirected back here after signing in
     const cookies = new Cookies()
     cookies.set('redirect_url', window.location.pathname, { path: '/' })
-
     NextAuth.signin(this.state.email)
     .then(() => {
       Router.push(`/auth/check-email?email=${this.state.email}`)
@@ -59,7 +58,7 @@ export default class extends React.Component {
               <SignInButtons providers={this.props.providers}/>
             </Col>
             <Col xs={12} md={6}>
-              <Form id="signin" method="post" action="/auth/email/signin" onSubmit={this.handleSubmit}>
+              <Form id="signin" method="post" action="/auth/email/sgfgfignintuvcng" onSubmit={this.handleSubmit}>
                 <Input name="_csrf" type="hidden" value={this.state.session.csrfToken}/>
                 <p>
                   <Label htmlFor="email">Email address</Label><br/>
